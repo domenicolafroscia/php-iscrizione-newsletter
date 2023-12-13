@@ -1,11 +1,8 @@
 <?php
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
-    if (str_contains($email, '@') !== false && str_contains($email, '.') !== false) {
-        echo "<div class='alert alert-success'>Email valida!</div>";
-    } else {
-        echo "<div class='alert alert-danger'>Email non valida!</div>";
-    }
+} else {
+    $email = '';
 }
 ?>
 
@@ -29,6 +26,7 @@ if (isset($_POST['email'])) {
         <label for="email">Email:</label>
         <input type="text" id="email" name="email" placeholder="email1@gmail.com" required>
         <button type="submit">Submit</button>
+        <?php include './functions.php' ?>
     </form>
 
 
