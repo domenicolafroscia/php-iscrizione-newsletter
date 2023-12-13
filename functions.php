@@ -1,9 +1,13 @@
-<?php if (str_contains($email, '@') !== false && str_contains($email, '.') !== false) { ?>
-    <div class='alert alert-success'>Email valida!</div>
-    <?php header('Location: ./thankyou.php'); ?>
-<?php } else{ ?>
-    <div class='alert alert-danger'>Email non valida!</div>
-<?php } ?>
+<?php 
 
+session_start();
 
-
+if (isset($_POST['email'])) {
+    $email = $_POST['email'];    
+    if (str_contains($email, '@') !== false && str_contains($email, '.') !== false) {
+        $_SESSION['auth'] = true;
+        header('Location: ./thankyou.php'); die;
+    } else {
+        $error = true;
+    }
+}

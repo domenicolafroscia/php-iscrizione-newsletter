@@ -1,13 +1,4 @@
-<?php
-if (isset($_POST['email'])) {
-    $email = $_POST['email'];
-} else {
-    $email = '';
-}
-?>
-
-
-
+<?php include './functions.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +13,14 @@ if (isset($_POST['email'])) {
 
     <h1>Email Validator</h1>
 
+    <?php if (isset($error)) { ?>
+        <div class='alert alert-danger'>Email non valida!</div>
+    <?php } ?>
+
     <form action="index.php" method="post">
         <label for="email">Email:</label>
         <input type="text" id="email" name="email" placeholder="email1@gmail.com" required>
         <button type="submit">Submit</button>
-        <?php include './functions.php' ?>
     </form>
 
 
