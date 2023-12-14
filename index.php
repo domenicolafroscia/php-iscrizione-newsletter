@@ -1,4 +1,4 @@
-<?php include './functions.php'; ?>
+<?php include_once './functions.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +19,7 @@
 
     <form action="index.php" method="post">
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" placeholder="email1@gmail.com" required>
+        <input type="text" id="email" name="email" placeholder="email1@gmail.com" value="<?php echo !empty ($_POST['email']) ? $_POST['email'] : '' ?>">
         <button type="submit">Submit</button>
     </form>
 
